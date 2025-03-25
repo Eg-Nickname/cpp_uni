@@ -11,16 +11,25 @@
 #include <array>
 #include <iostream>
 
-void calculate_for_c_array(int tab[10]);
-void calculate_for_cpp_array(std::array<int, 10> cpp_array);
+const int array_size = 10;
+
+void calculate_for_c_array(int tab[array_size]);
+void calculate_for_cpp_array(std::array<int, array_size> cpp_array);
 
 auto main() -> int {
-    int c_array[10];
-    std::array<int, 10> cpp_array;
+    int c_array[array_size];
+    std::array<int, array_size> cpp_array;
 
-    for (int i = 0; i < 10; i++) {
-        int liczba;
-        std::cin >> liczba;
+    for (int i = 0; i < array_size; i++) {
+        std::string input;
+        double liczba = 0.0;
+        std::cin >> input;
+        try {
+            liczba = std::stod(input);
+        } catch (std::invalid_argument) {
+            // ignore input process further
+            liczba = 0.0;
+        }
         c_array[i] = liczba;
         cpp_array.at(i) = liczba;
     }
@@ -29,26 +38,26 @@ auto main() -> int {
     return 0;
 }
 
-void calculate_for_c_array(int tab[10]) {
+void calculate_for_c_array(int tab[array_size]) {
     int sum = 0;
     double avg = 0.0;
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < array_size; i++) {
         std::cout << tab[i] << " ";
         sum += tab[i];
     }
-    avg = (double)sum / 10.0;
+    avg = (double)sum / (double)array_size;
     std::cout << std::endl
               << "Suma liczb w tablicy " << sum << ", średnia " << avg
               << std::endl;
 }
-void calculate_for_cpp_array(std::array<int, 10> cpp_array) {
+void calculate_for_cpp_array(std::array<int, array_size> cpp_array) {
     int sum = 0;
     double avg = 0.0;
     for (auto it = cpp_array.begin(); it < cpp_array.end(); it++) {
         std::cout << *it << " ";
         sum += *it;
     }
-    avg = (double)sum / 10.0;
+    avg = (double)sum / (double)array_size;
     std::cout << std::endl
               << "Suma liczb w array " << sum << ", średnia " << avg
               << std::endl;
