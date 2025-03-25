@@ -11,7 +11,6 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
-#include <iterator>
 #include <print>
 
 void print_cur_dir();
@@ -21,7 +20,8 @@ namespace fs = std::filesystem;
 
 auto main(int argc, char** argv) -> int {
     if (argc != 2) {
-        std::print("Please provide file path to analyze");
+        std::print("Please provide file path to analyze\n");
+        return 1;
     }
 
     std::string file_name(argv[1]);
