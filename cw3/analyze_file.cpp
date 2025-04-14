@@ -7,6 +7,24 @@
 // znaków. Znak – traktujemy jako zwykły znak interpunkcyjny, więc np.
 // „czarno-czerwony” powinien być traktowany jako dwa słowa.
 
+// Niech program liczy ile razy dane słowo wystąpiło w tekście. Duże i małe
+// litery traktujemy tak samo. Wyniki proszę zapisać w mapie, a następnie ją
+// wypisać.
+// - Niech program uszereguje słowa alfabetycznie (wypis).
+// - Niech program uszereguje słowa od najkrótszego do najdłuższego. Jeśli dwa
+// słowa mają taką samą długość, niech decyduje kolejność alfabetyczna (wypis).
+// - Ile różnych słów jest w tekście? (wypis)
+// - Ile w tekście jest wyrazów o parzystej liczbie liter i nieparzystej liczbie
+// liter? (wypis)
+// - Jaki jest najdłuższy wyraz w tekście? Jeśli jest ich kilka, wypisz
+// wszystkie.
+// - Usuń z mapy wszystkie słowa, które zawierają literę q. Wypisz zawartość
+// mapy po tej operacji.
+// - Znajdź i wypisz wszystkie słowa, które zawierają litery o i l.
+// -* Wyszukuj i wypisuj wyrazy pochodne np. dom: domu, domy, domów, domowi...
+
+// Wyniki analizy tekstu zapisz w pliku tekstowym.
+
 #include <cctype>
 #include <filesystem>
 #include <fstream>
