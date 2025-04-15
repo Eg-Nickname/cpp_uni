@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-enum Field { Id, Title, Name, Surname, Pub_year };
+enum class Field { Id, Title, Name, Surname, Pub_year };
 
 struct Book {
     int id;
@@ -74,27 +74,27 @@ std::vector<Book> load_books_from_file(std::string filename) {
 
 void sort_books(std::vector<Book>& vec, Field field) {
     switch (field) {
-    case Id:
+    case Field::Id:
         std::sort(vec.begin(), vec.end(), [](Book const& lhs, Book const& rhs) {
             return lhs.id < rhs.id;
         });
         return;
-    case Title:
+    case Field::Title:
         std::sort(vec.begin(), vec.end(), [](Book const& lhs, Book const& rhs) {
             return lhs.title < rhs.title;
         });
         return;
-    case Name:
+    case Field::Name:
         std::sort(vec.begin(), vec.end(), [](Book const& lhs, Book const& rhs) {
             return lhs.name < rhs.name;
         });
         return;
-    case Surname:
+    case Field::Surname:
         std::sort(vec.begin(), vec.end(), [](Book const& lhs, Book const& rhs) {
             return lhs.surname < rhs.surname;
         });
         return;
-    case Pub_year:
+    case Field::Pub_year:
         std::sort(vec.begin(), vec.end(), [](Book const& lhs, Book const& rhs) {
             return lhs.pub_year < rhs.pub_year;
         });
